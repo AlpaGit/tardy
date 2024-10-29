@@ -21,7 +21,7 @@ pub const Storage = struct {
     /// This will NOT CLONE the item.
     /// This asserts that no other item has the same name.
     pub fn store_ptr(self: *Storage, name: []const u8, item: anytype) !void {
-        assert(@typeInfo(@TypeOf(item)) == .Pointer);
+        assert(@typeInfo(@TypeOf(item)) == .pointer);
         try self.map.putNoClobber(self.arena.allocator(), name, @ptrCast(item));
     }
 
