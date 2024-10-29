@@ -54,7 +54,7 @@ pub fn auto_async_match() AsyncIOType {
         },
         .windows => return AsyncIOType.busy_loop,
         .ios, .macos, .watchos, .tvos, .visionos => return AsyncIOType.busy_loop,
-        .kfreebsd, .freebsd, .openbsd, .netbsd, .dragonfly => return AsyncIOType.busy_loop,
+        .openbsd, .netbsd, .dragonfly => return AsyncIOType.busy_loop,
         .solaris, .illumos => return AsyncIOType.busy_loop,
         else => @compileError("Unsupported platform! Provide a custom AsyncIO backend."),
     }
